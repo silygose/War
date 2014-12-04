@@ -27,8 +27,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    /**
+    Defiens what happens when Play button is tapped
+    */
     @IBAction func playRoundTapped(sender: UIButton) {
-        self.playRoundButton.setTitle("Play Round", forState: UIControlState.Normal)
+    //    self.playRoundButton.setTitle("Play Round", forState: UIControlState.Normal)
+        
+        //Generate randm numbers
+        var firstRandomNumber = arc4random_uniform(13) + 1
+        var secondRandomNumber = arc4random_uniform(13) + 1
+        
+        //construct string with card and random number
+        var firstCardSting:String = String(format: "card%i", firstRandomNumber)
+        var secondCardSting:String = String(format: "card%i", secondRandomNumber)
+        
+        // set UIImage for both cards
+        self.firstCardImageview.image = UIImage(named: firstCardSting)
+        self.secondCardImageView.image = UIImage(named: secondCardSting)
     }
 
 }
